@@ -1,0 +1,41 @@
+<! DOCTYPE HTML>
+<html>
+<head>
+    <style>
+            table {
+                border-collapse: collapse;
+                border: 2px black solid;
+                font: 12px sans-serif;
+            }
+            thead { border-collapse: collapse;
+                border: 2px black solid;
+                font: 12px sans-serif}
+            td {
+                border: 1px black solid;
+                padding: 5px;
+            }
+        </style>
+</head>
+    <meta charset="utf-8">
+    <title>Super Sprinter 3000</title>
+<body>
+    <h1>Super Sprinter 3000</h1>
+    <table>
+    <thead><tr>{% for element in list_of_the_all[0] %}
+        <td>{{element}}</td>{% endfor %}</tr></thead>
+    <tbody>
+    {% for row in list_of_the_all[1:] %}
+    <tr>
+        {% for element in row %}
+      <td>{{ element }}
+      {% endfor %}
+    </td><td><form action="/delete-note" method="post"><button type="submit" name ="item-to-delete" value="{{row[0]}}">"&#128686;"</button></form></td>
+    </td><td><form action="/story2/{{ row[0] }}" method="get"><button type="submit">"&#9997;"</button></form></td>
+    </tr>
+        {% endfor %}
+    </tbody>
+    <p><form action="/story">
+    <input type="submit" value="Add new story"/>
+    </form></p>
+</body>
+</html>
